@@ -53,3 +53,62 @@
 
 몰랐던 사실  
 IoC로 스프링이 객체 생성하면 싱글톤으로 객체를 관리해주는 건 알았는데, xml에서 \<bean> 의 scope 속성으로 singleton이 default이고, scope="prototype" 하면 인스턴스 여러개를 생성 가능
+
+---
+
+### 2025-08-13
+
+#### 어노테이션 기반 설정
+
+[ 컴포넌트 스캔 (component-scan) ]  
+
+스프링 설정파일 applicationContext.xml에 \<context:component-scan /> 태그를 정의하고, 범위(패키지)를 설정하면 (base-package="패키지명")  
+\<bean> 등록 없이 설정한 패키지 하위의 @Component 가 설정된 클래스들을 스캔하여 자동으로 객체를 생성해준다 (스프링 컨테이너가 해당 클래스를 bean으로 생성, 관리함)
+
+@Component("id") 이렇게 id를 명시해주거나, 명시하지 않으면 클래스명을 따라간다 (ex: Member -> member)
+
+
+[ 의존성 주입 어노테이션 ]
+
+@Autowired, @Resources, @Inject, @Qualifier  
+
+생성자 또는 setter없이 DI 간편하게 해주는 어노테이션  
+대상 객체도 bean 등록 되어 있어야 함
+
+실무에서 자주 나오는데 무슨차이인지 궁금했었음 (특히 @Autowired랑 @Resources)  
+==> @Autowired와 @Resources는 DI 해주는 기능은 똑같지만,  
+@Autowired는 변수의 타입을 기준으로 bean 등록된 객체를 검색하는데, 같은 타입의 객체가 여러개 있다면 @Qualifier("id") 어노테이션을 같이 사용해 어떤 객체를 DI 할지 id를 명시해줘야한다  
+반면 @Resources는 (name = "") 속성이 있고, 객체의 이름을 기준으로 DI 한다  
+@Resources 에 name 속성을 생략하면 @Autowired와 똑같이 타입을 기준으로 찾는다 (완전 똑같음) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
