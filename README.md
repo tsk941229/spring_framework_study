@@ -81,7 +81,18 @@ IoC로 스프링이 객체 생성하면 싱글톤으로 객체를 관리해주�
 반면 @Resources는 (name = "") 속성이 있고, 객체의 이름을 기준으로 DI 한다  
 @Resources 에 name 속성을 생략하면 @Autowired와 똑같이 타입을 기준으로 찾는다 (완전 똑같음) 
 
+---
 
+### 2025-08-14
+
+비즈니스 컴포넌트 실습 1
+ 
+Service, ServiceImpl, DAO 구조  
+어노테이션 기반 IoC, DI 사용하여 게시판 (Board) CRUD 실습  
+Driver로 JDBC연결도 복습겸 (JNDI, DBCP는 다음 실습때 복습예정)
+
+
+---
 
 
 
