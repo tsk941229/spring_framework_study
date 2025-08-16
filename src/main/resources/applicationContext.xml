@@ -11,6 +11,14 @@
 
     <context:component-scan base-package="com.springbook.*"></context:component-scan>
 
+
+    <bean id="UserServiceImpl" class="com.springbook.user.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO" />
+    </bean>
+
+    <bean id="userDAO" class="com.springbook.user.impl.UserDAO"></bean>
+
+
     <!--<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod" lazy-init="true" >
         <constructor-arg ref="apple"></constructor-arg>
         <constructor-arg name="price" value="270000"></constructor-arg>
