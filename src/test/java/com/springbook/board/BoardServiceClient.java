@@ -1,5 +1,6 @@
 package com.springbook.board;
 
+import com.springbook.board.impl.BoardServiceImpl;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -14,6 +15,7 @@ public class BoardServiceClient {
 
         // Spring 컨테이너로 부터 BoardServiceImpl 객체 Lookup
         BoardService boardService = (BoardService) container.getBean("boardService");
+
 
         // 글 등록
         BoardVO vo = new BoardVO();
