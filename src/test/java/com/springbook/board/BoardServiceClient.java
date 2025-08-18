@@ -22,7 +22,7 @@ public class BoardServiceClient {
         vo.setTitle("임시 제목");
         vo.setWriter("홍길동");
         vo.setContent("임시 내용.................");
-        boardService.insertBoard(vo);
+//        boardService.insertBoard(vo);
 
         // 글 목록 조회
         List<BoardVO> boardList = boardService.getBoardList();

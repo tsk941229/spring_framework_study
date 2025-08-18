@@ -140,7 +140,18 @@ AOP 용어 정리
     Advice: "커피 만들기 전 손 씻기" / "완성 후 컵 닦기"  
     Aspect: "손 씻기 + 컵 닦기 규칙을 바리스타 업무에 적용한다"라는 전체 묶음
 
+    
 
+--- 
+
+### 2025-08-18
+
+AOP Advice 동작 시점
+
+before, afterReturning, afterThrowing, after, around 등의 Advice 동작 시점 실습  
+around에서 위 모든 동작 시점을 핸들링 할 수 있기 때문에 around를 자주 쓰게 될 것 같다
+
+---
 
 
 
