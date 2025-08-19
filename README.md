@@ -153,7 +153,17 @@ around에서 위 모든 동작 시점을 핸들링 할 수 있기 때문에 arou
 
 ---
 
+### 2025-08-19
 
+JoinPoint 파라미터 실습
+
+AOP 횡단 관심 Advice 메소드를 선언할 때 JoinPoint 파라미터를 명시하면 스프링 컨테이너가 Advice 메소드를 호출 할 때 JoinPoint 객체를 생성해서 넘겨준다
+
+ProceedingJoinPoint는 JoinPoint를 상속한 객체고, JoinPoint가 가진 메소드를 지원하며 proceeding() 이 추가된다  
+Around Advice만 ProceedingJoinPoint를 매개변수로 사용한다 (Around만 proceed() 메소드가 필요하기 때문)  
+나머지(before, afterReturning ...)는 모두 JoinPoint 사용
+
+ProceedingJoinPoint.proceed() 호출부 앞 뒤로 before, after 즉 횡단 관심 소스를 작성하면 대상 핵심 관심 전, 후로 횡단 관심 로직이 실행된다 
 
 
 

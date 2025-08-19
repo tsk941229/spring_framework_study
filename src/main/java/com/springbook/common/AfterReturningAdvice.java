@@ -1,9 +1,21 @@
 package com.springbook.common;
 
+import com.springbook.user.UserVO;
+import org.aspectj.lang.JoinPoint;
+
 public class AfterReturningAdvice {
 
-    public void afterLog() {
-        System.out.println("[사후처리] 비즈니스 로직 수행 후 동작");
+    public void afterLog(JoinPoint joinPoint, Object returnObj) {
+
+        String method = joinPoint.getSignature().getName();
+        if(returnObj instanceof UserVO) {
+            UserVO userVO = (UserVO) returnObj;
+            if(userVO.getRole().equals("ADMIN")) {
+                System.out.println(userVO.getName() + " 로그인(ADMIN)");
+            }
+        }
+
+        System.out.println("[사후처리] " + method + "() 메소드 리턴값 : " + returnObj.toString());
     }
 
 }

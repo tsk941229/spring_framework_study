@@ -11,6 +11,9 @@ public class UserServiceImpl {
     }
 
     public UserVO getUser(UserVO vo) {
+
+//        if(true) throw new RuntimeException("런타임 에러");
+
         return userDAO.getUser(vo);
     }
 
