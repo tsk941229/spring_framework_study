@@ -165,6 +165,17 @@ Around Advice만 ProceedingJoinPoint를 매개변수로 사용한다 (Around만 
 
 ProceedingJoinPoint.proceed() 호출부 앞 뒤로 before, after 즉 횡단 관심 소스를 작성하면 대상 핵심 관심 전, 후로 횡단 관심 로직이 실행된다 
 
+---
+
+### 2025-08-20
+
+어노테이션 기반 AOP
+
+AOP (Advice)를 어노테이션으로 선언하려면 \<aop:aspectj-autoproxy> 를 config xml에 선언해야한다 (해당 엘리먼트를 선언하면 스프링 컨테이너는 AOP 관련 어노테이션들을 적절하게 처리해준다)  
+@Component 어노테이션 쓸 때 \<component-scan> 선언했던 것 처럼!
+
+공용 Pointcut 등을 선언할 AOP용 config 클래스 하나 만들어서 관리하면 좋을 것 같다 (오늘 실습의 PointcutCommon 같은 클래스)
+
 
 
 

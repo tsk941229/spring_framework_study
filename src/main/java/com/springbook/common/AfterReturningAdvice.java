@@ -2,9 +2,16 @@ package com.springbook.common;
 
 import com.springbook.user.UserVO;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
 
+@Service
+@Aspect
 public class AfterReturningAdvice {
 
+    @AfterReturning(pointcut = "PointcutCommon.allPointcut()", returning = "returnObj")
     public void afterLog(JoinPoint joinPoint, Object returnObj) {
 
         String method = joinPoint.getSignature().getName();

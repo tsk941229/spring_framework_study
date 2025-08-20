@@ -1,13 +1,23 @@
-package com.springbook.common;
-
-public class LogAdvice {
-
-    public LogAdvice() {
-        System.out.println("스프링이 생성해줌 지금!!");
-    }
-
-    public void printLog() {
-        System.out.println("[공통 로그] 비즈니스 로직 수행 전 동작");
-    }
-
-}
+//package com.springbook.common;
+//
+//import org.aspectj.lang.annotation.Aspect;
+//import org.aspectj.lang.annotation.Before;
+//import org.aspectj.lang.annotation.Pointcut;
+//import org.springframework.stereotype.Service;
+//
+//@Service
+//@Aspect
+//public class LogAdvice {
+//
+//    @Pointcut("execution(* com.springbook..*Impl.*(..))")
+//    public void allPointcut() {}
+//
+//    @Pointcut("execution(* com.springbook..*Impl.get*(..))")
+//    public void getPointcut() {}
+//
+//    @Before("allPointcut()")
+//    public void printLog() {
+//        System.out.println("[공통 로그] 비즈니스 로직 수행 전 동작");
+//    }
+//
+//}
