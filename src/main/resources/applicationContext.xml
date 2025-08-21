@@ -10,6 +10,19 @@
         http://www.springframework.org/schema/aop
         https://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
+    <!-- DataSource 설정 -->
+    <context:property-placeholder location="classpath:config/database.properties" />
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <context:component-scan base-package="polymorphism"></context:component-scan>
 
     <context:component-scan base-package="com.springbook.*"></context:component-scan>

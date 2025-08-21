@@ -177,7 +177,13 @@ AOP (Advice)를 어노테이션으로 선언하려면 \<aop:aspectj-autoproxy> �
 공용 Pointcut 등을 선언할 AOP용 config 클래스 하나 만들어서 관리하면 좋을 것 같다 (오늘 실습의 PointcutCommon 같은 클래스)
 
 
+---
 
+### 2025-08-21
+
+스프링 JDBC
+
+commons.dbcp (DataSource), jdbcTemplate을 bean 등록하여 jdbc 연결 실습 
 
 
 
