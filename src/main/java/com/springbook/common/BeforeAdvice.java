@@ -6,8 +6,8 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
-@Service
-@Aspect
+//@Service
+//@Aspect
 public class BeforeAdvice {
 
     @Before("PointcutCommon.allPointcut()")
