@@ -113,6 +113,7 @@ public class BoardDAO {
                 board.setSeq(rs.getInt("seq"));
                 board.setTitle(rs.getString("title"));
                 board.setWriter(rs.getString("writer"));
+                board.setRegdate(rs.getDate("regdate"));
                 board.setContent(rs.getString("content"));
 
             }
@@ -146,6 +147,7 @@ public class BoardDAO {
                 board.setSeq(rs.getInt("seq"));
                 board.setTitle(rs.getString("title"));
                 board.setWriter(rs.getString("writer"));
+                board.setRegdate(rs.getDate("regdate"));
                 board.setContent(rs.getString("content"));
                 list.add(board);
 
