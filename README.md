@@ -212,6 +212,26 @@ jsp에서 Controller, View 역할, JavaBeans로 Model 역할을 하는 Model 1 �
 
 ---
 
+### 2025-08-26
+
+#### 게시판 실습 (Model 2 아키텍처)
+
+Model 1은 jsp가 Controller, View 역할을 동시에 맡는 구조라서 프로젝트 규모가 커지면 문제점이 많음  
+유지보수가 어렵고, 재사용성이 부족하며 테스트도 어려움  
+
+이를 보완한 Model 2 아키텍처는 Controller를 따로 두어 Controller와 View를 분리함  
+
+Servlet(DispatcherServlet)을 이용한 Controller 생성 등 Model 2 실습
+
+---
+
+
+
+
+
+
+
+
 
 
 
