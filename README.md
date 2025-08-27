@@ -225,8 +225,32 @@ Servlet(DispatcherServlet)을 이용한 Controller 생성 등 Model 2 실습
 
 ---
 
+### 2025-08-27
+
+#### MVC 프레임워크 실습
+
+Spring MVC 실습 이전에 Model 2 방식보다 조금 더 진보된 MVC 프레임워크 (Spring MVC 전)를 실습
+
+차이점은 DispatcherServlet에서 모든 분기처리를 수행하지 않고,  
+요청별로 개별의 Controller가 각자의 역할을 수행하며,  
+ViewResolver, HandlerMapping이 등장한다
+
+ - ViewResolver  
+ Controller가 리턴한 View 이름으로 실행 될 JSP 경로 (prefix, suffix로 viewName 가공해서 리턴함 ex: ./login.jsp)
 
 
+ - HandlerMapping  
+ 클라이언트의 요청을 처리 할 Controller를 매핑
+
+클라이언트 요청이 처리되는 과정 정리  
+1. 클라이언트 요청
+2. DispatcherServlet의 init() 에서 ViewResolver, HandlerMapping 객체 생성
+3. request 객체에서 uri의 path 얻어서 HandlerMapping에 매핑된 Controller 찾음
+4. 찾은 Controller 업무 수행 (Controller 수행 완료 후 viewName 리턴)
+5. viewName ViewResolver에서 가공 (./login.jsp 이런식으로 viewName 반환)
+6. response 객체의 sendRedirect(viewName) 으로 view로 감
+
+---
 
 
 
