@@ -252,7 +252,20 @@ ViewResolver, HandlerMapping이 등장한다
 
 ---
 
+### 2025-08-28
 
+#### Spring MVC 구조
+
+Spring MVC는 앞서 실습한 MVC 프레임워크와 크게 다르지 않다
+
+차이점을 말하자면  
+DispatcherServlet의 init()에서 더이상 객체를 new 하지 않고 ServleConfig -> context 객체로 컨테이너를 구동하고,  
+HandlerMapping, ViewResolver 객체를 \<bean> 등록하여 IoC로 컨테이너가 관리하게 하고,   
+Controller가 String을 반환하지 않고 ModelAndView 객체를 반환한다
+
+실습에서 더 자세히..
+
+---
 
 
 
