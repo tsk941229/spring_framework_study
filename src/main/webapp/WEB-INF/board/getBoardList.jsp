@@ -1,13 +1,6 @@
-<%@ page import="com.springbook.board.BoardVO" %>
-<%@ page import="com.springbook.board.impl.BoardDAO" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
-    // 세션에 저장된 글 목록을 꺼낸다.
-    List<BoardVO> boardList = (List) session.getAttribute("boardList");
-
-%>
 
 <html>
 <head>
@@ -42,27 +35,26 @@
                 <th bgcolor="orange" width="100">조회수</th>
             </tr>
 
-            <% for(BoardVO board : boardList) {%>
 
+            <c:forEach var="board" items="${boardList}" >
                 <tr>
-                    <td><%= board.getSeq()%></td>
+                    <td>${board.seq}</td>
                     <td align="left">
-                        <a href="getBoard.do?seq=<%= board.getSeq()%>">
-                            <%= board.getTitle()%>
+                        <a href="getBoard.do?seq=${board.seq}">
+                            ${board.title}
                         </a>
                     </td>
-                    <td><%= board.getWriter()%></td>
-                    <td><%= board.getRegdate()%></td>
-                    <td><%= board.getCnt()%></td>
+                    <td>${board.writer}</td>
+                    <td>${board.regdate}</td>
+                    <td>${board.cnt}</td>
                 </tr>
-
-            <%}%>
+            </c:forEach>
 
         </table>
 
         <br>
 
-        <a href="insertBoard.jsp">새글 등록</a>
+        <a href="../../insertBoard.jsp">새글 등록</a>
 
     </center>
 </body>

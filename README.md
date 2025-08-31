@@ -267,6 +267,14 @@ Controller가 String을 반환하지 않고 ModelAndView 객체를 반환한다
 
 ---
 
+### 2025-08-31
+
+#### Spring MVC 실습
+
+MVC 프레임워크 실습 하면서 직접 구현해봤던 DispatcherServlet을 springframework에서 지원하는 걸로 바꾸고,  
+HandlerMapping과 ViewResolver를 bean 등록하여 실습  
+
+ViewResolver를 활용하면 클라이언트에서 직접 jsp를 요청하지 못하게 WEB-INF안에 넣고, 정상적인 요청만으로 접근할 수 있게 가능
 
 
 

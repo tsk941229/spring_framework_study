@@ -2,7 +2,9 @@ package com.springbook.view.board;
 
 import com.springbook.board.BoardVO;
 import com.springbook.board.impl.BoardDAO;
-import com.springbook.view.controller.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertBoardController implements Controller {
 
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("글 등록 처리");
 
         // 1. 사용자 입력 정보 추출
@@ -28,7 +30,9 @@ public class InsertBoardController implements Controller {
         boardDAO.insertBoard(vo);
 
         // 3. 화면 네비게이션
-        return "getBoardList.do";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect:getBoardList.do");
+        return mav;
 
     }
 }
