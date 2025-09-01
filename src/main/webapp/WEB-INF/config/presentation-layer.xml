@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- ViewResolver 등록 -->
+    <context:component-scan base-package="com.springbook.view"></context:component-scan>
+
+
+
+    <!--
+    &lt;!&ndash; ViewResolver 등록 &ndash;&gt;
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/board/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <!-- HandlerMapping 등록 -->
+    &lt;!&ndash; HandlerMapping 등록 &ndash;&gt;
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -24,13 +32,13 @@
         </property>
     </bean>
 
-    <!-- Controller 등록 -->
+    &lt;!&ndash; Controller 등록 &ndash;&gt;
     <bean id="login" class="com.springbook.view.user.LoginController"></bean>
     <bean id="getBoardList" class="com.springbook.view.board.GetBoardListController"></bean>
     <bean id="getBoard" class="com.springbook.view.board.GetBoardController"></bean>
     <bean id="insertBoard" class="com.springbook.view.board.InsertBoardController"></bean>
     <bean id="updateBoard" class="com.springbook.view.board.UpdateBoardController"></bean>
     <bean id="deleteBoard" class="com.springbook.view.board.DeleteBoardController"></bean>
-
+    -->
 
 </beans>

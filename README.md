@@ -276,6 +276,23 @@ HandlerMapping과 ViewResolver를 bean 등록하여 실습
 
 ViewResolver를 활용하면 클라이언트에서 직접 jsp를 요청하지 못하게 WEB-INF안에 넣고, 정상적인 요청만으로 접근할 수 있게 가능
 
+---
+
+### 2025-09-01
+
+#### Spring MVC 실습 (어노테이션)
+
+어노테이션을 사용하면 많은게 축약된다  
+어노테이션을 선언하면 Spring 컨테이너가 알아서 해주는게 많은데,
+@Controller 어노테이션으로 컨트롤러를 간편하게 등록하고,  
+@RequestMapping 어노테이션을 선언하면 HandlerMapping 객체를 만들지 않아도 요청 url을 매핑해준다  
+
+#### Command 객체  
+
+Command 객체를 사용하지 않았을 땐 servlet request 객체에서 parameter를 하나하나 가져와 vo 객체에 set하고 그 다음 작업을 했었는데,  
+Command 객체를 RequestMapping이 선언된 메소드의 파라미터로 지정하면 (ex: BoardVO vo) 요청 payload에 담긴 name, value를 알아서 바인딩 해준다  
+이때 Command 객체는 JavaBeans이고, 바인딩을 원하는 필드의 setter가 반드시 있어야 한다  
+Spring 컨테이너가 setter로 값을 넣어주기 때문
 
 
 
