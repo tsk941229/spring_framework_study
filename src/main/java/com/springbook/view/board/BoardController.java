@@ -1,7 +1,8 @@
 package com.springbook.view.board;
 
+import com.springbook.board.BoardService;
 import com.springbook.board.BoardVO;
-import com.springbook.board.impl.BoardDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,9 @@ import java.util.Map;
 @SessionAttributes("board")
 public class BoardController {
 
+    @Autowired
+    private BoardService boardService;
+
     // 검색 조건 목록 설정
     @ModelAttribute("conditionMap")
     public Map<String, String> searchConditionMap() {
@@ -32,12 +36,12 @@ public class BoardController {
     public String getBoardList(
             @RequestParam(value = "searchCondition", defaultValue = "TITLE", required = false) String condition,
             @RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword,
-            BoardDAO boardDAO, Model model
+            Model model
     ) {
         System.out.println("검색 조건 : " + condition);
         System.out.println("검색 단어 : " + keyword);
 
-        List<BoardVO> boardList = boardDAO.getBoardList();
+        List<BoardVO> boardList = boardService.getBoardList();
         model.addAttribute("boardList", boardList);
 
         return "getBoardList.jsp";
@@ -46,9 +50,9 @@ public class BoardController {
 
     // 글 상세 조회
     @RequestMapping("/getBoard.do")
-    public String getBoard(BoardVO boardVO, BoardDAO boardDAO, Model model) {
+    public String getBoard(BoardVO boardVO, Model model) {
 
-        BoardVO board = boardDAO.getBoard(boardVO);
+        BoardVO board = boardService.getBoard(boardVO);
         model.addAttribute("board", board);
 
         return "getBoard.jsp";
@@ -57,32 +61,32 @@ public class BoardController {
 
     // 글 등록
     @RequestMapping("/insertBoard.do")
-    public String insertBoard(BoardVO boardVO, BoardDAO boardDAO, ModelAndView mav) {
+    public String insertBoard(BoardVO boardVO, ModelAndView mav) {
 
-        boardDAO.insertBoard(boardVO);
+        boardService.insertBoard(boardVO);
         return "getBoardList.do";
 
     }
 
     // 글 수정
     @RequestMapping("/updateBoard.do")
-    public String updateBoard(@ModelAttribute("board") BoardVO boardVO, BoardDAO boardDAO, ModelAndView mav) {
+    public String updateBoard(@ModelAttribute("board") BoardVO boardVO, ModelAndView mav) {
         System.out.println("번호: " + boardVO.getSeq());
         System.out.println("제목: " + boardVO.getTitle());
         System.out.println("내용: " + boardVO.getContent());
         System.out.println("작성자: " + boardVO.getWriter());
         System.out.println("날짜: " + boardVO.getRegdate());
         System.out.println("cnt: " + boardVO.getCnt());
-        boardDAO.updateBoard(boardVO);
+        boardService.updateBoard(boardVO);
         return "getBoardList.do";
 
     }
 
     // 글 삭제
     @RequestMapping("/deleteBoard.do")
-    public String deleteBoard(BoardVO boardVO, BoardDAO boardDAO, ModelAndView mav) {
+    public String deleteBoard(BoardVO boardVO, ModelAndView mav) {
 
-        boardDAO.deleteBoard(boardVO);
+        boardService.deleteBoard(boardVO);
         return "getBoardList.do";
 
     }
