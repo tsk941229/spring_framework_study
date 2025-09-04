@@ -27,7 +27,7 @@ public class BoardServiceClient {
         boardService.insertBoard(vo);
 
         // 글 목록 조회
-        List<BoardVO> boardList = boardService.getBoardList();
+        List<BoardVO> boardList = boardService.getBoardList(vo);
 
         for (BoardVO board : boardList) {
 

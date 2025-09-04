@@ -34,9 +34,9 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<BoardVO> getBoardList() {
+    public List<BoardVO> getBoardList(BoardVO vo) {
 
-        List<BoardVO> boardList = boardDAO.getBoardList();
+        List<BoardVO> boardList = boardDAO.getBoardList(vo);
 
         // 예외 유발
 //        boardList.get(180);

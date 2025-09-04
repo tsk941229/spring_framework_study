@@ -14,6 +14,6 @@ public interface BoardService {
 
     public BoardVO getBoard(BoardVO vo);
 
-    public List<BoardVO> getBoardList();
+    public List<BoardVO> getBoardList(BoardVO vo);
 
 }

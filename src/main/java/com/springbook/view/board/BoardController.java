@@ -34,14 +34,16 @@ public class BoardController {
     // 글 목록 조회
     @RequestMapping("/getBoardList.do")
     public String getBoardList(
-            @RequestParam(value = "searchCondition", defaultValue = "TITLE", required = false) String condition,
-            @RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword,
+//            @RequestParam(value = "searchCondition", defaultValue = "TITLE", required = false) String condition,
+//            @RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword,
+            BoardVO vo,
             Model model
     ) {
-        System.out.println("검색 조건 : " + condition);
-        System.out.println("검색 단어 : " + keyword);
 
-        List<BoardVO> boardList = boardService.getBoardList();
+        if(vo.getSearchCondition() == null) vo.setSearchCondition("TITLE");
+        if(vo.getSearchKeyword() == null) vo.setSearchKeyword("");
+
+        List<BoardVO> boardList = boardService.getBoardList(vo);
         model.addAttribute("boardList", boardList);
 
         return "getBoardList.jsp";

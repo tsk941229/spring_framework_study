@@ -24,6 +24,8 @@ public class BoardDAO {
     private final String BOARD_DELETE = "delete from BOARD where seq = ?";
     private final String BOARD_GET = "select * from BOARD where seq = ?";
     private final String BOARD_LIST = "select * from BOARD order by seq desc";
+    private final String BOARD_LIST_T = "select * from BOARD where title like '%'||?||'%' order by seq desc";
+    private final String BOARD_LIST_C = "select * from BOARD where content like '%'||?||'%' order by seq desc";
 
     // ----- CRUD 구현 ----- //
 
@@ -128,7 +130,7 @@ public class BoardDAO {
     }
 
     // 글 목록 조회
-    public List<BoardVO> getBoardList() {
+    public List<BoardVO> getBoardList(BoardVO vo) {
 
         System.out.println("getBoardList() :: 글 목록 조회");
 
@@ -137,8 +139,14 @@ public class BoardDAO {
         try {
 
             conn = JDBCUtil.getConnection();
+            if(vo.getSearchCondition().equals("TITLE")) {
+                pstmt = conn.prepareStatement(BOARD_LIST_T);
+            } else if(vo.getSearchCondition().equals("CONTENT")) {
+                pstmt = conn.prepareStatement(BOARD_LIST_C);
+            }
 
-            pstmt = conn.prepareStatement(BOARD_LIST);
+            pstmt.setString(1, vo.getSearchKeyword());
+
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
