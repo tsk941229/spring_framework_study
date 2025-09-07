@@ -342,9 +342,14 @@ easy
 
 1. 클라이언트 단에서 input type="file" 을 form 전송  
    이때 form의 enctype="multipart/form-data"로 설정해줘야 함
-2. 서버에서 커맨드 객체로 받음 (커맨드 객체의 필드에 MultipartFile로 변수명 name과 매칭하여 선언해줘야함)
+2. 서버에서 커맨드 객체로 받음 (커맨드 객체의 필드에 MultipartFile로 변수명 name과 매칭하여 선언해줘야함)  
    그냥 받으면 다 null로 들어옴 (스프링 MVC는 기본적으로 application/x-www-form-urlencoded만 처리 가능한데 form 전송을 multipart/form-data로 했기 때문에)  
    그래서 mulipartResolver 를 bean 등록해줘서 스프링 컨테이너가 multipart/form-data를 파싱할 수 있게 해줘야 함
    mulipartResolver은 전송된 multipart를 파싱해주고, 파싱 결과를 일반 필드는 기존과 같이 바인딩 할 수 있게(request.getParameter()처럼 접근 가능하도록)변환해주고 파일 필드는 MultipartFile 객체로 래핑해줌   
 3. 컨트롤러에서 주입된 커맨드 객체의 file 필드 사용  
    MultipartFile.transfer(File destFile)으로 지정된 파일 원하는 경로에 업로드 (destFile의 path로 업로드 됨)
+
+#### 예외 처리 실습
+
+@ControllerAdvice와 @ExceptionHandler를 이용한 글로벌 예외 처리 실습  
+
