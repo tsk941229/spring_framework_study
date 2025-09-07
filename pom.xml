@@ -73,6 +73,13 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>spring_framework_study</finalName>
