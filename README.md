@@ -353,3 +353,21 @@ easy
 
 @ControllerAdvice와 @ExceptionHandler를 이용한 글로벌 예외 처리 실습  
 
+---
+
+### 2025-09-08
+
+#### 다국어 처리 실습
+
+Spring 다국어 처리
+
+1. classpath에 원하는 폴더 (실습에선 message) 생성 후 properties 파일 생성  
+   여기서 파일명을 스프링 설절파일에 명시해야 하니 약속대로 정의해준다 (실습에선 messageResource_ko(en).properties)
+2. 스프링 설정 파일에 MessageSource bean을 등록하고 basenames property에 앞서 생성한 properties 파일 명시  
+   message.messageSource (패키지명.파일명) <- 약속된 사용법이 있으니 주의  
+3. LocaleResolver bean 등록
+4. LocaleChangeInterceptor bean 등록
+5. 사용 할 jsp에서 taglib 지시자 선언 후 다국어 처리 할 부분 수정  
+   ex) <spring:message code="message.user.login.title">
+
+---
