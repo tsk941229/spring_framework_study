@@ -371,3 +371,22 @@ Spring 다국어 처리
    ex) <spring:message code="message.user.login.title">
 
 ---
+
+### 2025-09-09
+
+#### 데이터 변환
+
+jackson2 라이브러리, @ResponseBody를 이용해 브라우저에 JSON 반환 실습
+
+먼저, @ResponseBody을 명시하면 Spring은 리턴값을 뷰 대신 HTTP body에 직접 씀  
+객체가 리턴되면 HttpMessageConverter가 실행되면서 JSON 변환 (정확히 말하면 jackson의 MappingJackson2HttpMessageConverter)  
+Content-Type 헤더에 application/json이 세팅되어 브라우저가 JSON으로 인식
+
+HttpMessageConverter 정리  
+Spring의 HttpMessageConverter가 리턴타입, 요청헤더 등을 보고 알맞은 Converter를 골라서 실행해줌  
+MappingJackson2HttpMessageConverter (jackson2 라이브러리 객체 <-> JSON 변환)  
+StringHttpMessageConverter (단순 문자열 처리)  
+FormHttpMessageConverter (application/x-www-form-urlencoded 처리)  
+등등 다양한 MessageConverter가 있다
+
+---
