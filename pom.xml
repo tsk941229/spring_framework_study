@@ -86,6 +86,13 @@
             <version>2.9.4</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.19</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>spring_framework_study</finalName>

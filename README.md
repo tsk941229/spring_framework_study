@@ -390,3 +390,17 @@ FormHttpMessageConverter (application/x-www-form-urlencoded 처리)
 등등 다양한 MessageConverter가 있다
 
 ---
+
+### 2025-09-10
+
+#### Mybatis 실습
+
+마바 공홈의 config 가이드 보면서 사용 전 기초 설정 실습과 Spring Bean 등록이 아닌 SqlSession을 싱글톤 패턴으로 직접 생성해봄  
+(Spring Bean 관리가 훨씬 좋지만.. 책에 나와있어서 한번 해봄)
+
+설정방법은 마바 공홈 https://mybatis.org/mybatis-3/getting-started.html 따라가면 된다  
+(configuration, environments mappers 등등..)  
+\<mapper>만 Repository에 따라 각 파일로 따로 둬서 SQL에만 집중할 수 있도록 하자  
+(mapper 만들고 config의 mappers에 등록해줘야함)
+
+---
