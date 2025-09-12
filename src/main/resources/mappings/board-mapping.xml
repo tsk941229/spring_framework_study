@@ -22,9 +22,15 @@
     </select>
 
     <select id="getBoardList" resultType="board">
-        select * from board
-        where title like '%'||#{searchKeyword}||'%'
-        order by seq desc
+        SELECT * FROM BOARD
+        WHERE 1=1
+        <if test="searchCondition == 'TITLE'">
+            AND TITLE LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        <if test="searchCondition == 'CONTENT'">
+            AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        ORDER BY SEQ DESC
     </select>
 
 </mapper>

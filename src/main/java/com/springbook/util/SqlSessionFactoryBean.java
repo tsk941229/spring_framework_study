@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.Reader;
 
+// 안쓰고 Spring Bean에 Mybatis 등록해서 씀
 public class SqlSessionFactoryBean {
     private static SqlSessionFactory sqlSessionFactory = null;
 

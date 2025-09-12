@@ -22,6 +22,15 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
 
+    <!-- Mybatis 설정 -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:sql-map-config.xml" />
+    </bean>
+    <bean class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSession"></constructor-arg>
+    </bean>
+
     <!-- Spring JDBC 설정 -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />

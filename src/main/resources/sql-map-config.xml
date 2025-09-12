@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!-- Properties 파일 설정 -->
-    <properties resource="config/database.properties" />
+    <!--<properties resource="config/database.properties" />-->
 
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
@@ -16,7 +16,7 @@
     </typeAliases>
 
     <!-- DataSource 설정 -->
-    <environments default="development">
+    <!--<environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
@@ -26,7 +26,7 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-    </environments>
+    </environments>-->
 
     <!-- Sql Mapper 설정 -->
     <mappers>

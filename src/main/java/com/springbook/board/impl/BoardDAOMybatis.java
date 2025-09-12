@@ -1,8 +1,8 @@
 package com.springbook.board.impl;
 
 import com.springbook.board.BoardVO;
-import com.springbook.util.SqlSessionFactoryBean;
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,11 +10,8 @@ import java.util.List;
 @Repository
 public class BoardDAOMybatis {
 
-    private SqlSession mybatis;
-
-    public BoardDAOMybatis() {
-        mybatis = SqlSessionFactoryBean.getSqlSessionInstance();
-    }
+    @Autowired
+    private SqlSessionTemplate mybatis;
 
     public void insertBoard(BoardVO vo) {
         mybatis.insert("insertBoard", vo);

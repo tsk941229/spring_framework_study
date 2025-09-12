@@ -404,3 +404,14 @@ FormHttpMessageConverter (application/x-www-form-urlencoded 처리)
 (mapper 만들고 config의 mappers에 등록해줘야함)
 
 ---
+
+### 2025-09-12
+
+#### Mybatis Spring 연동
+
+이전 Mybatis 실습 할 때 SqlSession을 직접 생성했었는데, 이번엔 mybatis-spring 의존성 추가하고, Spring Bean으로 SqlSession과 SqlSessionTemplate을 주입 받아서 실습해봄  
+
+마바에서 지원하는 다이나믹 SQL (\<if>...\</if>) 도 실습해봤다  
+근데 개인적으로 쿼리에 if 넣고 그러는건 별로 안좋은 것 같다.. 캐논 운영하면서 뼈저리게 느낌 프론트, 서버에서 최대한 데이터 가공하고 쿼리는 깔끔하게 쓰는게 유지보수에 좋은 거 같다
+
+---
